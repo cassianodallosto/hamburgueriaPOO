@@ -2,7 +2,7 @@ public class main {
     public static void main(String[] args) {
 
         Cliente cliente = new Cliente();
-        cliente.setNome("Membro da interpool");
+        cliente.setNome("Membro da interpoollll");
         cliente.setTelefone("5567676767");
         cliente.setEndereco("Rua dos bobos, 0");
 
