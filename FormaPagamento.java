@@ -1,23 +1,15 @@
-public class FormaPagamento {
-    private TipoPagamento tipo;
+public abstract class FormaPagamento implements Pagavel {
+    protected TipoPagamento tipo;
 
     public FormaPagamento(TipoPagamento tipo) {
-        if(tipo ==null) {
-            throw new IllegalArgumentException("Tipo de pagamento não pode ser nulo.");
-        }
+        if (tipo == null) throw new IllegalArgumentException("Tipo não pode ser nulo.");
         this.tipo = tipo;
     }
 
-    public TipoPagamento getTipo() {
+    public TipoPagamento getTipo() { 
         return tipo; 
     }
 
-
     @Override
-    public String toString() {
-        return tipo.toString(); //retorna o tipo e o valor do productum
-    }
-
-
-
+    public String toString() { return getDescricaoPagamento(); }
 }

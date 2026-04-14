@@ -15,8 +15,8 @@ public class main {
         pedido.adicionarItem(new ItemPedido(pastel, 1));
         pedido.adicionarItem(new ItemPedido(coca, 2));
 
-        FormaPagamento pagamento = new FormaPagamento(TipoPagamento.CARTAO_DE_CREDITO);
-        pedido.setFormaPagamento(pagamento);
+       //FormaPagamento pagamento = new FormaPagamento(TipoPagamento.CARTAO_DE_CREDITO);
+      //pedido.setFormaPagamento(pagamento);
 
         Entrega entrega = new Entrega(
             cliente.getNome(),
