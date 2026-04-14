@@ -22,7 +22,7 @@ public class Produto {
     public void setPreco(double preco) {
         if (preco >= 0) this.preco = preco;
     }
-
+    //teste
     @Override
     public String toString() {
         return nome + " - R$ " + String.format("%.2f", preco) + " (" + categoria + ")";
