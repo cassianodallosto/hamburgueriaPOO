@@ -1,4 +1,4 @@
-public class Cliente {
+public class Cliente implements Notificavel {
     private String nome;
     private String telefone;
     private String endereco;
@@ -43,5 +43,9 @@ public class Cliente {
         }
     }
 
+    @Override
+    public void notificar(String mensagem) {
+        System.out.println("[SMS para " + telefone + "] " + mensagem);
+    }
 
 }

@@ -1,35 +1,30 @@
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+public abstract class Entrega implements Notificavel {
+    protected String nomeCliente;
+    protected String endereco;
+    protected String status;
 
-public class Entrega {
-    private String nomeCliente;
-    private String endereco;
-    private double valorFrete;
-    private String status;
-    private LocalDateTime dataHoraPrevisao;
-
-    public Entrega(String nomeCliente, String endereco, double valorFrete, int horasParaEntrega) {
+    public Entrega(String nomeCliente, String endereco) {
         this.nomeCliente = nomeCliente;
         this.endereco = endereco;
-        this.valorFrete = valorFrete;
         this.status = "Processando";
-        this.dataHoraPrevisao = LocalDateTime.now().plusHours(horasParaEntrega);
     }
 
-    public String getPrevisaoFormatada() {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        return dataHoraPrevisao.format(formato);
-    }
+    public abstract double calcularFrete();
+    public abstract String getPrevisaoFormatada();
 
-    public double getValorFrete() { return valorFrete; }
-    public void setValorFrete(double valorFrete) { this.valorFrete = valorFrete; }
+    public void setStatus(String status) { this.status = status; }
+
+    @Override
+    public void notificar(String mensagem) {
+        System.out.println("[Entrega para " + nomeCliente + "] " + mensagem);
+    }
 
     @Override
     public String toString() {
         return "--- Dados de Entrega ---" +
                "\nCliente: " + nomeCliente +
                "\nDestino: " + endereco +
-               "\nFrete: R$ " + String.format("%.2f", valorFrete) +
+               "\nFrete: R$ " + String.format("%.2f", calcularFrete()) +
                "\nStatus: " + status +
                "\nPrevisão: " + getPrevisaoFormatada() +
                "\n------------------------";

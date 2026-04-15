@@ -1,31 +1,30 @@
+import java.time.LocalDateTime;
+
 public class main {
     public static void main(String[] args) {
+        Cliente cliente = new Cliente("Membro da Interpol", "55676767670", "Rua dos Bobos, 0");
 
-        Cliente cliente = new Cliente();
-        cliente.setNome("Membro da interpoollll");
-        cliente.setTelefone("5567676767");
-        cliente.setEndereco("Rua dos bobos, 0");
-
-        Produto feijaoComFarinha = new Produto("Feijão Com Farinha", 25.67, "aumosso");
+        Produto feijao = new Produto("Feijão Com Farinha", 25.67, "almoço");
         Produto pastel = new Produto("Pastel do Tambara", 12.00, "janta");
-        Produto coca = new Produto("Coca-Cola", 8.00, "Bebida");
+        Produto coca   = new Produto("Coca-Cola", 8.00, "bebida");
 
         Pedido pedido = new Pedido(1, cliente);
-        pedido.adicionarItem(new ItemPedido(feijaoComFarinha, 2));
+        pedido.adicionarItem(new ItemPedido(feijao, 2));
         pedido.adicionarItem(new ItemPedido(pastel, 1));
         pedido.adicionarItem(new ItemPedido(coca, 2));
 
-       //FormaPagamento pagamento = new FormaPagamento(TipoPagamento.CARTAO_DE_CREDITO);
-      //pedido.setFormaPagamento(pagamento);
+        // Polimorfismo: qualquer FormaPagamento funciona aqui
+        FormaPagamento pagamento = new PagCartao(3);
+        pedido.setFormaPagamento(pagamento);
 
-        Entrega entrega = new Entrega(
-            cliente.getNome(),
-            cliente.getEndereco(),
-            5.00,
-            2
-        );
+        // Polimorfismo: qualquer Entrega funciona aqui
+        Entrega entrega = new EntregaExpressa(cliente.getNome(), cliente.getEndereco());
         pedido.setEntrega(entrega);
 
         System.out.println(pedido);
+        System.out.printf("Total com taxa e frete: R$ %.2f%n", pedido.calcularTotalComTaxa());
+
+        // Interface Notificavel em ação
+        pedido.notificarTodos("Seu pedido #1 foi confirmado!");
     }
 }
