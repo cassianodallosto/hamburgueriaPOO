@@ -4,7 +4,7 @@ public class main {
     public static void main(String[] args) {
         Cliente cliente = new Cliente("Membro da Interpol", "55676767670", "Rua dos Bobos, 0");
 
-        Produto feijao = new Produto("Feijão Com Farinha", 25.67, "almoço");
+        Produto feijao = new Produto("Feijao Com Farinha", 25.67, "almoco");
         Produto pastel = new Produto("Pastel do Tambara", 12.00, "janta");
         Produto coca   = new Produto("Coca-Cola", 8.00, "bebida");
 
