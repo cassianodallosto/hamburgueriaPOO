@@ -17,7 +17,7 @@ public class main {
         FormaPagamento pagamento = new PagCartao(3);
         pedido.setFormaPagamento(pagamento);
 
-        // Polimorfismo: qualquer Entrega funciona aqui
+        // Polimorfismo: qualquer Entrega funci ona aqui
         Entrega entrega = new EntregaExpressa(cliente.getNome(), cliente.getEndereco());
         pedido.setEntrega(entrega);
 
