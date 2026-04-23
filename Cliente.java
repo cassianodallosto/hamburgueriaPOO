@@ -9,10 +9,6 @@ public class Cliente implements Notificavel {
         this.endereco = endereco;
     }
 
-    public Cliente() {
-    }
-
-
     public String getNome() {
         return nome;
     }
