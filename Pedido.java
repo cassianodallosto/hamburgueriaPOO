@@ -17,6 +17,8 @@ public class Pedido {
     public void adicionarItem(ItemPedido item) {
         if (item != null) {
             itens.add(item);
+        } else {
+            throw new IllegalArgumentException("Item não pode ser nulo.");
         }
     }
     

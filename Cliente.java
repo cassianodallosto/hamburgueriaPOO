@@ -17,6 +17,9 @@ public class Cliente implements Notificavel {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         }
+        else {
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
+        }
     }
 
     public String getTelefone() {
@@ -27,6 +30,9 @@ public class Cliente implements Notificavel {
         if (telefone != null && telefone.length() == 11) {
             this.telefone = telefone;
         }
+        else {
+            throw new IllegalArgumentException("Telefone deve ter 11 dígitos.");
+        }
     }
 
     public String getEndereco() {
@@ -36,6 +42,9 @@ public class Cliente implements Notificavel {
     public void setEndereco(String endereco) {
         if (endereco != null) {
             this.endereco = endereco;
+        }
+        else {
+            throw new IllegalArgumentException("Endereço não pode ser vazio.");
         }
     }
 
